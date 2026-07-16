@@ -27,7 +27,7 @@ export default function Home() {
       setMessages(data);
     };
     fetchMessages();
-    const targetDate = new Date("2026-08-20T00:00:00").getTime();
+    const targetDate = new Date("2026-07-24T20:00:00").getTime();
 
     const updateCountdown = () => {
       const now = new Date().getTime();
@@ -133,7 +133,7 @@ export default function Home() {
           <p className={styles.preTitle}>TOGETHER WITH THEIR FAMILIES,</p>
           <h1 className={styles.title}>Ghazal & Ghazal's wife</h1>
           <p className={styles.subtitle}>Joyfully invite you to celebrate their wedding weekend</p>
-          <p className={styles.dateLocation}>AUGUST 20, 2026 &nbsp;&middot;&nbsp; CAIRO, EGYPT</p>
+          <p className={styles.dateLocation}>JULY 24, 2026 &nbsp;&middot;&nbsp; CAIRO, EGYPT</p>
 
           {isMounted && (
             <div className={styles.countdownContainer}>
@@ -183,9 +183,9 @@ export default function Home() {
             <div className={styles.galleryTextCenter}>
               <h3 className={styles.weddingDayTitle}>Wedding Day</h3>
               <p className={styles.weddingDayDetails}>
-                20 AUGUST 2026<br /><br />
+                24 July 2026<br /><br />
                 Tiki Pool & Bar, CAIRO, EGYPT<br /><br />
-                AT 6:30 PM<br /><br />
+                AT 8 PM<br /><br />
                 DRESS CODE: FORMAL
               </p>
               <button className={styles.secondaryButton} onClick={() => window.open('https://maps.app.goo.gl/oWxfo7196T7vKZzh9?g_st=ipc', '_blank', 'noopener,noreferrer')}>Get Location</button>
@@ -205,7 +205,7 @@ export default function Home() {
             <div className={styles.galleryTextCenter}>
               <h3 className={`${styles.weddingDayTitle} ${styles.afterWeddingTitle}`}>The After wedding</h3>
               <p className={styles.weddingDayDetails}>
-                21 AUGUST 2026<br /><br />
+                24 July 2026<br /><br />
                 THE Zafa<br />CAIRO, EGYPT<br /><br />
                 AT 7:00 PM<br /><br />
                 DRESS CODE: BLACK & WHITE
