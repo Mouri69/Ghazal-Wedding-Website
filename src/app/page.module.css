@@ -194,7 +194,7 @@
 }
 
 .rowReverse {
-  flex-direction: column;
+  flex-direction: row-reverse;
 }
 
 .galleryImageContainer {
@@ -264,6 +264,18 @@
   font-weight: 400;
   opacity: 0;
   animation: fadeInUp 0.8s ease-out 1.4s forwards;
+}
+
+.afterWeddingTitle {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+}
+
+.afterWeddingImageContainer {
+  flex: 1.6;
+}
+
+.afterWeddingImage {
+  max-width: 800px;
 }
 
 .weddingDayDetails {

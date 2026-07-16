@@ -9,14 +9,14 @@ export default function Home() {
 
   const handleEnvelopeClick = () => {
     if (envelopeState !== 'close') return;
-    
+
     // Go to midway state
     setEnvelopeState('midway');
-    
+
     // Wait a brief moment, then go to fully open state
     setTimeout(() => {
       setEnvelopeState('open');
-      
+
       // Wait for user to see the open envelope, then reveal website
       setTimeout(() => {
         setIsWebsiteVisible(true);
@@ -28,7 +28,7 @@ export default function Home() {
     return (
       <div className={styles.envelopeOverlay} onClick={handleEnvelopeClick}>
         <div className={styles.envelopeContainer}>
-          <Image 
+          <Image
             src="/assets/envelope_close.png"
             alt="Wedding Invitation Envelope Closed"
             width={1000}
@@ -36,7 +36,7 @@ export default function Home() {
             priority
             className={`${styles.envelopeImage} ${envelopeState === 'close' ? styles.visible : styles.hidden}`}
           />
-          <Image 
+          <Image
             src="/assets/envelope_midway.png"
             alt="Wedding Invitation Envelope Midway"
             width={1000}
@@ -44,7 +44,7 @@ export default function Home() {
             priority
             className={`${styles.envelopeImageAbsolute} ${envelopeState === 'midway' ? styles.visible : styles.hidden}`}
           />
-          <Image 
+          <Image
             src="/assets/envelope_open.png"
             alt="Wedding Invitation Envelope Open"
             width={1000}
@@ -114,6 +114,28 @@ export default function Home() {
                 FIVE STAR HOTEL, CAIRO, EGYPT<br /><br />
                 AT 6:30 PM<br /><br />
                 DRESS CODE: FORMAL
+              </p>
+              <button className={styles.secondaryButton}>Hometown</button>
+            </div>
+          </div>
+
+          <div className={`${styles.galleryRow} ${styles.rowReverse}`}>
+            <div className={`${styles.galleryImageContainer} ${styles.afterWeddingImageContainer}`}>
+              <Image
+                src="/assets/table.png"
+                alt="After Wedding Table"
+                width={800}
+                height={800}
+                className={`${styles.galleryImage} ${styles.afterWeddingImage}`}
+              />
+            </div>
+            <div className={styles.galleryTextCenter}>
+              <h3 className={`${styles.weddingDayTitle} ${styles.afterWeddingTitle}`}>The After wedding</h3>
+              <p className={styles.weddingDayDetails}>
+                23 FEBRUARY 2026<br /><br />
+                THE Zafa<br />CAIRO, EGYPT<br /><br />
+                AT 7:00 PM<br /><br />
+                DRESS CODE: BLACK & WHITE
               </p>
               <button className={styles.secondaryButton}>Hometown</button>
             </div>
