@@ -188,7 +188,7 @@ export default function Home() {
                 AT 6:30 PM<br /><br />
                 DRESS CODE: FORMAL
               </p>
-              <button className={styles.secondaryButton}>Hometown</button>
+              <button className={styles.secondaryButton}>Get Location</button>
             </div>
           </div>
 
@@ -257,7 +257,7 @@ export default function Home() {
         <div className={styles.container}>
           <h2 className={`${styles.weddingDayTitle} ${styles.guestbookTitle}`}>Write us a message</h2>
           <p className={styles.whereToStaySubtitle}>We'd love to hear from you!</p>
-          
+
           {submitStatus === 'success' ? (
             <div className={styles.successMessage}>
               <p>Thank you! Your message has been sent and is awaiting approval.</p>
@@ -265,18 +265,18 @@ export default function Home() {
             </div>
           ) : (
             <form className={styles.guestbookForm} onSubmit={handleGuestbookSubmit}>
-              <input 
-                type="text" 
-                placeholder="Your Name" 
-                className={styles.inputField} 
+              <input
+                type="text"
+                placeholder="Your Name"
+                className={styles.inputField}
                 value={nameInput}
                 onChange={(e) => setNameInput(e.target.value)}
                 required
                 disabled={submitStatus === 'loading'}
               />
-              <textarea 
-                placeholder="Your Message..." 
-                className={styles.textAreaField} 
+              <textarea
+                placeholder="Your Message..."
+                className={styles.textAreaField}
                 rows={5}
                 value={messageInput}
                 onChange={(e) => setMessageInput(e.target.value)}
