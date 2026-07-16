@@ -19,9 +19,9 @@ export default function Home() {
 
         <div className={styles.heroContent}>
           <p className={styles.preTitle}>TOGETHER WITH THEIR FAMILIES,</p>
-          <h1 className={styles.title}>Pankaj & Designer girl</h1>
+          <h1 className={styles.title}>Ghazal & Ghazal's wife</h1>
           <p className={styles.subtitle}>Joyfully invite you to celebrate their wedding weekend</p>
-          <p className={styles.dateLocation}>FEBRUARY 22, 2026 &nbsp;&middot;&nbsp; INDORE, INDIA</p>
+          <p className={styles.dateLocation}>FEBRUARY 22, 2026 &nbsp;&middot;&nbsp; CAIRO, EGYPT</p>
 
           <button className={styles.rsvpButton}>Kindly RSVP by 10 March</button>
         </div>
@@ -52,12 +52,12 @@ export default function Home() {
             <div className={styles.galleryTextCenter}>
               <h3 className={styles.weddingDayTitle}>Wedding Day</h3>
               <p className={styles.weddingDayDetails}>
-                22 FEBRUARY 2026<br/><br/>
-                FIVE STAR HOTEL, INDORE, INDIA<br/><br/>
-                AT 6:30 PM<br/><br/>
+                22 FEBRUARY 2026<br /><br />
+                FIVE STAR HOTEL, CAIRO, EGYPT<br /><br />
+                AT 6:30 PM<br /><br />
                 DRESS CODE: FORMAL
               </p>
-              <button className={styles.secondaryButton}>Pankaj&UK India</button>
+              <button className={styles.secondaryButton}>Hometown</button>
             </div>
           </div>
         </div>
