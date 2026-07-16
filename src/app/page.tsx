@@ -184,7 +184,7 @@ export default function Home() {
               <h3 className={styles.weddingDayTitle}>Wedding Day</h3>
               <p className={styles.weddingDayDetails}>
                 20 AUGUST 2026<br /><br />
-                FIVE STAR HOTEL, CAIRO, EGYPT<br /><br />
+                Tiki Pool & Bar, CAIRO, EGYPT<br /><br />
                 AT 6:30 PM<br /><br />
                 DRESS CODE: FORMAL
               </p>
