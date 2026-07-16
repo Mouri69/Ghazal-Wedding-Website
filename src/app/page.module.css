@@ -79,7 +79,8 @@
 .rsvpButton {
   margin-top: 1rem;
   width: 100%;
-  max-width: 300px; /* Better button layout on mobile */
+  max-width: 300px;
+  /* Better button layout on mobile */
 }
 
 /* Gallery Section */
@@ -89,9 +90,11 @@
 
 .galleryRow {
   display: flex;
-  flex-direction: row; /* Side-by-side on mobile */
+  flex-direction: row;
+  /* Side-by-side on mobile */
   align-items: center;
-  gap: 1rem; /* Smaller gap for mobile */
+  gap: 1rem;
+  /* Smaller gap for mobile */
   margin-bottom: 4rem;
 }
 
@@ -104,7 +107,26 @@
   position: relative;
   display: flex;
   justify-content: center;
-  flex: 1; /* Take 50% width on mobile */
+  flex: 1;
+  /* Take 50% width on mobile */
+}
+
+.chairWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+.umbrellaImage {
+  position: absolute;
+  top: -40%;
+  left: -25%;
+  width: clamp(80px, 35%, 200px);
+  height: auto;
+  z-index: 10;
+  object-fit: contain;
 }
 
 .galleryImage {
@@ -127,7 +149,8 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  flex: 1; /* Take 50% width on mobile */
+  flex: 1;
+  /* Take 50% width on mobile */
 }
 
 .weddingDayTitle {
@@ -170,11 +193,11 @@
     padding: 4rem 2rem 0;
     justify-content: center;
   }
-  
+
   .centralImageWrapper {
     margin-bottom: 3rem;
   }
-  
+
   .rsvpButton {
     width: auto;
   }
@@ -208,6 +231,13 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

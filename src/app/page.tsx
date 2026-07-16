@@ -32,13 +32,22 @@ export default function Home() {
         <div className={styles.container}>
           <div className={styles.galleryRow}>
             <div className={styles.galleryImageContainer}>
-              <Image
-                src="/assets/Chair.png"
-                alt="Wedding Chair"
-                width={500}
-                height={500}
-                className={styles.galleryImage}
-              />
+              <div className={styles.chairWrapper}>
+                <Image
+                  src="/assets/umbrella.png"
+                  alt="Umbrella"
+                  width={200}
+                  height={200}
+                  className={styles.umbrellaImage}
+                />
+                <Image
+                  src="/assets/Chair.png"
+                  alt="Wedding Chair"
+                  width={500}
+                  height={500}
+                  className={styles.galleryImage}
+                />
+              </div>
             </div>
             <div className={styles.galleryTextCenter}>
               <h3 className={styles.weddingDayTitle}>Wedding Day</h3>
