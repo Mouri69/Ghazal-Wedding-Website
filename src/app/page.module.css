@@ -5,6 +5,88 @@
   flex-direction: column;
 }
 
+/* Envelope Overlay */
+.envelopeOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.envelopeContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  animation: simpleFadeIn 1s ease-out;
+}
+
+.envelopeImage, .envelopeImageAbsolute {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  object-fit: contain;
+  transition: opacity 0.3s ease, transform 0.5s ease;
+  padding: 2rem;
+}
+
+.envelopeImageAbsolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.visible {
+  opacity: 1;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.envelopeImage:hover, .envelopeImageAbsolute:hover {
+  transform: scale(1.05);
+}
+
+.opened {
+  transform: scale(1);
+  animation: slightPulse 0.5s ease-out;
+}
+
+.envelopeInstruction {
+  position: absolute;
+  bottom: 10%;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  animation: pulse 2s infinite;
+  z-index: 20;
+}
+
+@keyframes slightPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+@keyframes pulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -37,8 +119,8 @@
   width: 100%;
   height: auto;
   object-fit: contain;
-  /* Add a subtle fade in animation */
-  animation: fadeIn 2s ease-in-out;
+  opacity: 0;
+  animation: fadeInUp 1.2s ease-out forwards;
 }
 
 .heroContent {
@@ -53,6 +135,8 @@
   text-transform: uppercase;
   color: var(--text-secondary);
   margin-bottom: 1rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.2s forwards;
 }
 
 .title {
@@ -61,6 +145,8 @@
   line-height: 1.2;
   font-family: 'Great Vibes', cursive;
   font-weight: 400;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.4s forwards;
 }
 
 .subtitle {
@@ -68,6 +154,8 @@
   font-style: italic;
   color: var(--text-secondary);
   margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.6s forwards;
 }
 
 .dateLocation {
@@ -76,6 +164,8 @@
   text-transform: uppercase;
   margin-bottom: 2.5rem;
   font-weight: 500;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.8s forwards;
 }
 
 .rsvpButton {
@@ -83,6 +173,8 @@
   width: 100%;
   max-width: 300px;
   /* Better button layout on mobile */
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 1s forwards;
 }
 
 /* Gallery Section */
@@ -123,6 +215,8 @@
   /* Move both chair and umbrella up more */
   transform: scale(1.3);
   transform-origin: center;
+  opacity: 0;
+  animation: simpleFadeIn 1.5s ease-out 1.2s forwards;
 }
 
 .umbrellaImage {
@@ -167,6 +261,8 @@
   font-family: 'Great Vibes', cursive;
   color: var(--accent);
   font-weight: 400;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 1.4s forwards;
 }
 
 .weddingDayDetails {
@@ -177,6 +273,8 @@
   line-height: 1.5;
   font-family: 'Playfair Display', serif;
   text-transform: uppercase;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 1.6s forwards;
 }
 
 .secondaryButton {
@@ -189,6 +287,8 @@
   font-family: 'Inter', sans-serif;
   cursor: pointer;
   transition: all 0.3s ease;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 1.8s forwards;
 }
 
 .secondaryButton:hover {
@@ -239,14 +339,22 @@
   }
 }
 
-@keyframes fadeIn {
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes simpleFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

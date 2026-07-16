@@ -1,7 +1,65 @@
+"use client";
 import Image from 'next/image';
 import styles from './page.module.css';
+import { useState } from 'react';
 
 export default function Home() {
+  const [envelopeState, setEnvelopeState] = useState<'close' | 'midway' | 'open'>('close');
+  const [isWebsiteVisible, setIsWebsiteVisible] = useState(false);
+
+  const handleEnvelopeClick = () => {
+    if (envelopeState !== 'close') return;
+    
+    // Go to midway state
+    setEnvelopeState('midway');
+    
+    // Wait a brief moment, then go to fully open state
+    setTimeout(() => {
+      setEnvelopeState('open');
+      
+      // Wait for user to see the open envelope, then reveal website
+      setTimeout(() => {
+        setIsWebsiteVisible(true);
+      }, 1000);
+    }, 450); // Increased to 450ms for a slightly slower midway frame transition
+  };
+
+  if (!isWebsiteVisible) {
+    return (
+      <div className={styles.envelopeOverlay} onClick={handleEnvelopeClick}>
+        <div className={styles.envelopeContainer}>
+          <Image 
+            src="/assets/envelope_close.png"
+            alt="Wedding Invitation Envelope Closed"
+            width={1000}
+            height={700}
+            priority
+            className={`${styles.envelopeImage} ${envelopeState === 'close' ? styles.visible : styles.hidden}`}
+          />
+          <Image 
+            src="/assets/envelope_midway.png"
+            alt="Wedding Invitation Envelope Midway"
+            width={1000}
+            height={700}
+            priority
+            className={`${styles.envelopeImageAbsolute} ${envelopeState === 'midway' ? styles.visible : styles.hidden}`}
+          />
+          <Image 
+            src="/assets/envelope_open.png"
+            alt="Wedding Invitation Envelope Open"
+            width={1000}
+            height={700}
+            priority
+            className={`${styles.envelopeImageAbsolute} ${envelopeState === 'open' ? styles.visible : styles.hidden} ${envelopeState === 'open' ? styles.opened : ''}`}
+          />
+          {envelopeState === 'close' && (
+            <p className={styles.envelopeInstruction}>Click to open</p>
+          )}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <main className={styles.main}>
       {/* Hero Section with Central Gate */}
