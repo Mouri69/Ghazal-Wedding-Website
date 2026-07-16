@@ -8,58 +8,20 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
 }
 
-/* Hero Section */
+/* Mobile-first Hero Section */
 .heroSection {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   min-height: 100vh;
-  padding: 4rem 2rem 0;
+  padding: 2rem 1rem;
   text-align: center;
   overflow: hidden;
-}
-
-.heroContent {
-  z-index: 10;
-  margin-bottom: 2rem;
-}
-
-.preTitle {
-  font-size: 0.85rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  margin-bottom: 1rem;
-}
-
-.title {
-  font-size: 4.5rem;
-  margin-bottom: 1rem;
-  line-height: 1.2;
-}
-
-.subtitle {
-  font-size: 1.1rem;
-  font-style: italic;
-  color: var(--text-secondary);
-  margin-bottom: 2rem;
-}
-
-.dateLocation {
-  font-size: 1rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 3rem;
-  font-weight: 500;
-}
-
-.rsvpButton {
-  margin-top: 1rem;
 }
 
 .centralImageWrapper {
@@ -68,7 +30,7 @@
   max-width: 900px;
   display: flex;
   justify-content: center;
-  margin-top: 3rem;
+  margin-bottom: 1.5rem;
 }
 
 .centralImage {
@@ -79,80 +41,169 @@
   animation: fadeIn 2s ease-in-out;
 }
 
-/* Gallery Section */
-.gallerySection {
-  padding: 6rem 0;
-  background-color: #ffffff; /* Slightly lighter than off-white to create contrast */
+.heroContent {
+  z-index: 10;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
 }
 
-.galleryTitle {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 4rem;
+.preTitle {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: clamp(2.5rem, 10vw, 4.5rem);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: clamp(1rem, 4vw, 1.1rem);
+  font-style: italic;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.dateLocation {
+  font-size: clamp(0.85rem, 3.5vw, 1rem);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+  font-weight: 500;
+}
+
+.rsvpButton {
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 300px; /* Better button layout on mobile */
+}
+
+/* Gallery Section */
+.gallerySection {
+  padding: 4rem 1rem;
 }
 
 .galleryRow {
   display: flex;
+  flex-direction: row; /* Side-by-side on mobile */
   align-items: center;
-  justify-content: space-between;
-  gap: 4rem;
-  margin-bottom: 6rem;
+  gap: 1rem; /* Smaller gap for mobile */
+  margin-bottom: 4rem;
 }
 
 .rowReverse {
-  flex-direction: row-reverse;
+  flex-direction: column;
 }
 
 .galleryImageContainer {
-  flex: 1;
+  width: 100%;
   position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: center;
+  flex: 1; /* Take 50% width on mobile */
 }
 
 .galleryImage {
   width: 100%;
+  max-width: 500px;
   height: auto;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.5s ease;
   display: block;
 }
 
 .galleryImageContainer:hover .galleryImage {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
-.galleryText {
-  flex: 1;
+.galleryTextCenter {
+  width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
+  text-align: center;
+  flex: 1; /* Take 50% width on mobile */
 }
 
-.galleryText h3 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
+.weddingDayTitle {
+  font-size: clamp(1.2rem, 5vw, 3.5rem);
+  margin-bottom: 1rem;
+  font-family: 'Playfair Display', serif;
+  color: var(--accent);
 }
 
-.galleryText p {
-  font-size: 1.1rem;
-  line-height: 1.8;
+.weddingDayDetails {
+  font-size: clamp(0.55rem, 2vw, 0.85rem);
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  font-family: 'Playfair Display', serif;
+  text-transform: uppercase;
+}
+
+.secondaryButton {
+  background-color: transparent;
   color: var(--text-secondary);
+  border: 1px solid var(--text-secondary);
+  border-radius: 30px;
+  padding: 8px 24px;
+  font-size: 0.8rem;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-@media (max-width: 768px) {
-  .title {
-    font-size: 2.5rem;
+.secondaryButton:hover {
+  background-color: var(--text-secondary);
+  color: #fff;
+}
+
+/* Desktop Enhancements */
+@media (min-width: 768px) {
+  .heroSection {
+    padding: 4rem 2rem 0;
+    justify-content: center;
   }
   
-  .galleryRow {
-    flex-direction: column;
-    gap: 2rem;
+  .centralImageWrapper {
+    margin-bottom: 3rem;
+  }
+  
+  .rsvpButton {
+    width: auto;
   }
 
-  .rowReverse {
-    flex-direction: column;
+  .galleryRow {
+    flex-direction: row;
+    gap: 4rem;
+    margin-bottom: 6rem;
+    align-items: center;
+  }
+
+  .weddingDayTitle {
+    margin-bottom: 2rem;
+  }
+
+  .weddingDayDetails {
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    letter-spacing: 0.1em;
+  }
+
+  .galleryImageContainer {
+    flex: 1;
+    justify-content: flex-end;
+  }
+
+  .galleryTextCenter {
+    flex: 1;
+    align-items: center;
   }
 }
 
