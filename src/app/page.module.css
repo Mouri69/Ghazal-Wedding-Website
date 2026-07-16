@@ -56,9 +56,11 @@
 }
 
 .title {
-  font-size: clamp(2.5rem, 10vw, 4.5rem);
+  font-size: clamp(3rem, 12vw, 5.5rem);
   margin-bottom: 1rem;
   line-height: 1.2;
+  font-family: 'Great Vibes', cursive;
+  font-weight: 400;
 }
 
 .subtitle {
@@ -117,7 +119,7 @@
   justify-content: center;
   width: 100%;
   max-width: 600px;
-  margin-top: -14rem;
+  margin-top: -10rem;
   /* Move both chair and umbrella up more */
   transform: scale(1.3);
   transform-origin: center;
@@ -126,7 +128,7 @@
 .umbrellaImage {
   position: absolute;
   top: -40%;
-  left: -7%;
+  left: -9%;
   width: clamp(90px, 40%, 250px);
   /* Make umbrella slightly bigger */
   height: auto;
@@ -160,10 +162,11 @@
 }
 
 .weddingDayTitle {
-  font-size: clamp(1.2rem, 5vw, 3.5rem);
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
   margin-bottom: 1rem;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Great Vibes', cursive;
   color: var(--accent);
+  font-weight: 400;
 }
 
 .weddingDayDetails {
