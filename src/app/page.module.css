@@ -178,6 +178,40 @@
   animation: fadeInUp 0.8s ease-out 1s forwards;
 }
 
+/* Countdown Styles */
+.countdownContainer {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 2rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 1s forwards;
+}
+
+.countdownItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60px;
+}
+
+.countdownNumber {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+  font-weight: 400;
+}
+
+.countdownLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
 /* Gallery Section */
 .gallerySection {
   padding: 4rem 1rem;
@@ -409,6 +443,143 @@
   object-fit: contain;
 }
 
+/* Guestbook Section */
+.guestbookSection {
+  padding: 2rem 1rem 6rem;
+  text-align: center;
+}
+
+.guestbookTitle {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  margin-bottom: 1rem;
+}
+
+.guestbookForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.4s forwards;
+}
+
+.inputField, .textAreaField {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: 1px solid rgba(51, 76, 43, 0.2);
+  border-radius: 8px;
+  background-color: transparent;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.inputField::placeholder, .textAreaField::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+.inputField:focus, .textAreaField:focus {
+  border-color: var(--accent);
+}
+
+.textAreaField {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submitButton {
+  background-color: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 32px;
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.submitButton:hover {
+  background-color: #273b21;
+  transform: scale(1.02);
+}
+
+.successMessage {
+  font-family: 'Inter', sans-serif;
+  color: var(--accent);
+  padding: 2rem;
+  background-color: rgba(51, 76, 43, 0.05);
+  border-radius: 12px;
+  max-width: 500px;
+  margin: 0 auto;
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.errorMessage {
+  font-family: 'Inter', sans-serif;
+  color: #d32f2f;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Guestbook Messages Display */
+.messagesList {
+  margin-top: 6rem;
+  width: 100%;
+}
+
+.messagesListTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: var(--accent);
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.messagesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.messageCard {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(51, 76, 43, 0.1);
+  text-align: left;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.messageContent {
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.messageAuthor {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--accent);
+  text-align: right;
+}
+
 /* Desktop Enhancements */
 @media (min-width: 768px) {
   .heroSection {
@@ -453,6 +624,10 @@
 
   .hotelsGrid {
     gap: 2rem;
+  }
+
+  .messagesGrid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

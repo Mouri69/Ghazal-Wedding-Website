@@ -1,11 +1,52 @@
 "use client";
 import Image from 'next/image';
 import styles from './page.module.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { submitMessage, getApprovedMessages } from '@/actions/messageActions';
 
 export default function Home() {
   const [envelopeState, setEnvelopeState] = useState<'close' | 'midway' | 'open'>('close');
   const [isWebsiteVisible, setIsWebsiteVisible] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  const [messages, setMessages] = useState<{ id: string; name: string; content: string; createdAt: Date }[]>([]);
+  const [nameInput, setNameInput] = useState('');
+  const [messageInput, setMessageInput] = useState('');
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  useEffect(() => {
+    setIsMounted(true);
+    const fetchMessages = async () => {
+      const data = await getApprovedMessages();
+      setMessages(data);
+    };
+    fetchMessages();
+    const targetDate = new Date("2026-08-20T00:00:00").getTime();
+
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance > 0) {
+        setTimeLeft({
+          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((distance % (1000 * 60)) / 1000),
+        });
+      }
+    };
+
+    updateCountdown();
+    const timer = setInterval(updateCountdown, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   const handleEnvelopeClick = () => {
     if (envelopeState !== 'close') return;
@@ -22,6 +63,19 @@ export default function Home() {
         setIsWebsiteVisible(true);
       }, 1000);
     }, 450); // Increased to 450ms for a slightly slower midway frame transition
+  };
+
+  const handleGuestbookSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitStatus('loading');
+    const result = await submitMessage(nameInput, messageInput);
+    if (result.success) {
+      setSubmitStatus('success');
+      setNameInput('');
+      setMessageInput('');
+    } else {
+      setSubmitStatus('error');
+    }
   };
 
   if (!isWebsiteVisible) {
@@ -79,9 +133,28 @@ export default function Home() {
           <p className={styles.preTitle}>TOGETHER WITH THEIR FAMILIES,</p>
           <h1 className={styles.title}>Ghazal & Ghazal's wife</h1>
           <p className={styles.subtitle}>Joyfully invite you to celebrate their wedding weekend</p>
-          <p className={styles.dateLocation}>FEBRUARY 22, 2026 &nbsp;&middot;&nbsp; CAIRO, EGYPT</p>
+          <p className={styles.dateLocation}>AUGUST 20, 2026 &nbsp;&middot;&nbsp; CAIRO, EGYPT</p>
 
-          <button className={styles.rsvpButton}>Kindly RSVP by 10 March</button>
+          {isMounted && (
+            <div className={styles.countdownContainer}>
+              <div className={styles.countdownItem}>
+                <span className={styles.countdownNumber}>{timeLeft.days}</span>
+                <span className={styles.countdownLabel}>Days</span>
+              </div>
+              <div className={styles.countdownItem}>
+                <span className={styles.countdownNumber}>{timeLeft.hours}</span>
+                <span className={styles.countdownLabel}>Hours</span>
+              </div>
+              <div className={styles.countdownItem}>
+                <span className={styles.countdownNumber}>{timeLeft.minutes}</span>
+                <span className={styles.countdownLabel}>Mins</span>
+              </div>
+              <div className={styles.countdownItem}>
+                <span className={styles.countdownNumber}>{timeLeft.seconds}</span>
+                <span className={styles.countdownLabel}>Secs</span>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
@@ -110,7 +183,7 @@ export default function Home() {
             <div className={styles.galleryTextCenter}>
               <h3 className={styles.weddingDayTitle}>Wedding Day</h3>
               <p className={styles.weddingDayDetails}>
-                22 FEBRUARY 2026<br /><br />
+                20 AUGUST 2026<br /><br />
                 FIVE STAR HOTEL, CAIRO, EGYPT<br /><br />
                 AT 6:30 PM<br /><br />
                 DRESS CODE: FORMAL
@@ -132,7 +205,7 @@ export default function Home() {
             <div className={styles.galleryTextCenter}>
               <h3 className={`${styles.weddingDayTitle} ${styles.afterWeddingTitle}`}>The After wedding</h3>
               <p className={styles.weddingDayDetails}>
-                23 FEBRUARY 2026<br /><br />
+                21 AUGUST 2026<br /><br />
                 THE Zafa<br />CAIRO, EGYPT<br /><br />
                 AT 7:00 PM<br /><br />
                 DRESS CODE: BLACK & WHITE
@@ -169,13 +242,68 @@ export default function Home() {
 
           <div className={styles.houseImageContainer}>
             <Image
-              src="/assets/house.png"
-              alt="House"
+              src="/assets/quill.png"
+              alt="Quill"
               width={1000}
               height={500}
               className={styles.houseImage}
             />
           </div>
+        </div>
+      </section>
+
+      {/* Guestbook Section */}
+      <section className={styles.guestbookSection}>
+        <div className={styles.container}>
+          <h2 className={`${styles.weddingDayTitle} ${styles.guestbookTitle}`}>Write us a message</h2>
+          <p className={styles.whereToStaySubtitle}>We'd love to hear from you!</p>
+          
+          {submitStatus === 'success' ? (
+            <div className={styles.successMessage}>
+              <p>Thank you! Your message has been sent and is awaiting approval.</p>
+              <button onClick={() => setSubmitStatus('idle')} className={styles.secondaryButton} style={{ marginTop: '1.5rem' }}>Write another</button>
+            </div>
+          ) : (
+            <form className={styles.guestbookForm} onSubmit={handleGuestbookSubmit}>
+              <input 
+                type="text" 
+                placeholder="Your Name" 
+                className={styles.inputField} 
+                value={nameInput}
+                onChange={(e) => setNameInput(e.target.value)}
+                required
+                disabled={submitStatus === 'loading'}
+              />
+              <textarea 
+                placeholder="Your Message..." 
+                className={styles.textAreaField} 
+                rows={5}
+                value={messageInput}
+                onChange={(e) => setMessageInput(e.target.value)}
+                required
+                disabled={submitStatus === 'loading'}
+              ></textarea>
+              <button type="submit" className={styles.submitButton} disabled={submitStatus === 'loading'}>
+                {submitStatus === 'loading' ? 'Sending...' : 'Send Message'}
+              </button>
+              {submitStatus === 'error' && <p className={styles.errorMessage}>Failed to send message. Please try again.</p>}
+            </form>
+          )}
+
+          {/* Approved Messages Display */}
+          {messages.length > 0 && (
+            <div className={styles.messagesList}>
+              <h3 className={styles.messagesListTitle}>Guest Messages</h3>
+              <div className={styles.messagesGrid}>
+                {messages.map((msg) => (
+                  <div key={msg.id} className={styles.messageCard}>
+                    <p className={styles.messageContent}>"{msg.content}"</p>
+                    <p className={styles.messageAuthor}>- {msg.name}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
     </main>

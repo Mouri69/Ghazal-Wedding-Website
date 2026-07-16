@@ -1,0 +1,173 @@
+.adminContainer {
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  background-color: #Fdfcf0;
+  font-family: 'Inter', sans-serif;
+}
+
+.loginCard {
+  max-width: 400px;
+  margin: 10vh auto;
+  padding: 3rem 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.title {
+  font-family: 'Playfair Display', serif;
+  color: var(--accent);
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input {
+  padding: 1rem;
+  border: 1px solid rgba(51, 76, 43, 0.2);
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.input:focus {
+  border-color: var(--accent);
+}
+
+.button {
+  padding: 1rem;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background-color: #273b21;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+}
+
+.logoutButton {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--text-secondary);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.logoutButton:hover {
+  background: var(--text-secondary);
+  color: white;
+}
+
+.tableContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th, .table td {
+  padding: 1.25rem 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.table th {
+  font-family: 'Playfair Display', serif;
+  color: var(--accent);
+  font-weight: 600;
+  background-color: rgba(51, 76, 43, 0.03);
+}
+
+.nameCell {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.messageCell {
+  max-width: 400px;
+  color: var(--text-secondary);
+}
+
+.statusApproved {
+  padding: 0.25rem 0.75rem;
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #2E7D32;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.statusPending {
+  padding: 0.25rem 0.75rem;
+  background-color: rgba(255, 152, 0, 0.1);
+  color: #ED6C02;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.actionsCell {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.approveButton, .deleteButton {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.approveButton {
+  background-color: #E8F5E9;
+  color: #2E7D32;
+}
+
+.approveButton:hover {
+  background-color: #C8E6C9;
+}
+
+.deleteButton {
+  background-color: #FFEBEE;
+  color: #C62828;
+}
+
+.deleteButton:hover {
+  background-color: #FFCDD2;
+}
+
+.emptyState {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 3rem !important;
+}
