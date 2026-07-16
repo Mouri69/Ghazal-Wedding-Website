@@ -132,7 +132,7 @@ export default function Home() {
         <div className={styles.heroContent}>
           <p className={styles.preTitle}>TOGETHER WITH THEIR FAMILIES,</p>
           <h1 className={styles.title}>Ghazal & Ghazal's wife</h1>
-          <p className={styles.subtitle}>Joyfully invite you to celebrate their wedding weekend</p>
+          <p className={styles.subtitle}>Joyfully invite you to celebrate their engagment weekend</p>
           <p className={styles.dateLocation}>JULY 24, 2026 &nbsp;&middot;&nbsp; CAIRO, EGYPT</p>
 
           {isMounted && (
@@ -181,7 +181,7 @@ export default function Home() {
               </div>
             </div>
             <div className={styles.galleryTextCenter}>
-              <h3 className={styles.weddingDayTitle}>Wedding Day</h3>
+              <h3 className={styles.weddingDayTitle}>Engagment Day</h3>
               <p className={styles.weddingDayDetails}>
                 24 July 2026<br /><br />
                 Tiki Pool & Bar, CAIRO, EGYPT<br /><br />
@@ -203,7 +203,7 @@ export default function Home() {
               />
             </div>
             <div className={styles.galleryTextCenter}>
-              <h3 className={`${styles.weddingDayTitle} ${styles.afterWeddingTitle}`}>The After wedding</h3>
+              <h3 className={`${styles.weddingDayTitle} ${styles.afterWeddingTitle}`}>The After engagment</h3>
               <p className={styles.weddingDayDetails}>
                 24 July 2026<br /><br />
                 THE Zafa<br />CAIRO, EGYPT<br /><br />
