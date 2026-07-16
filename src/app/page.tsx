@@ -142,6 +142,42 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Good to know Section */}
+      <section className={styles.whereToStaySection}>
+        <div className={styles.container}>
+          <h2 className={`${styles.weddingDayTitle} ${styles.whereToStayTitle}`}>Good to know</h2>
+
+
+          <div className={styles.hotelsGrid}>
+            <div className={styles.hotelCard}>
+              <h4 className={styles.hotelName}>Capture the moments and share them with us</h4>
+              <p className={styles.hotelDetails}>Snap as many photos as you'd like and don't forget to tag us or send us your favorites after the celebration!</p>
+            </div>
+            <div className={styles.hotelCard}>
+              <h4 className={styles.hotelName}>Make Memories</h4>
+              <p className={styles.hotelDetails}>Laugh, dance, celebrate, and capture every special moment.</p>
+            </div>
+            <div className={styles.hotelCard}>
+              <h4 className={styles.hotelName}>Parking available</h4>
+              <p className={styles.hotelDetails}>There is plenty of parking at the venue, so feel free to drive and park your car.</p>
+            </div>
+          </div>
+
+          <p className={styles.whereToStayFooter}>
+            Thank you for being part of our special day. Your presence means the world to us. Relax, have fun, and make unforgettable memories.          </p>
+
+          <div className={styles.houseImageContainer}>
+            <Image
+              src="/assets/house.png"
+              alt="House"
+              width={1000}
+              height={500}
+              className={styles.houseImage}
+            />
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

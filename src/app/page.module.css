@@ -309,6 +309,106 @@
   color: #fff;
 }
 
+/* Where to Stay Section */
+.whereToStaySection {
+  padding: 4rem 1rem 6rem;
+  text-align: center;
+}
+
+.whereToStayTitle {
+  font-size: clamp(3rem, 10vw, 5rem);
+  margin-bottom: 1rem;
+}
+
+.whereToStaySubtitle {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-secondary);
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  margin-bottom: 4rem;
+  font-weight: 300;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.hotelsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 4rem;
+  width: 100%;
+}
+
+.hotelCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.hotelsGrid .hotelCard:nth-child(1) { animation-delay: 0.2s; }
+.hotelsGrid .hotelCard:nth-child(2) { animation-delay: 0.4s; }
+.hotelsGrid .hotelCard:nth-child(3) { animation-delay: 0.6s; }
+
+.hotelName {
+  font-family: 'Playfair Display', serif;
+  color: var(--accent);
+  font-size: clamp(0.7rem, 2vw, 1.4rem);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+  font-weight: 600;
+  text-align: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 4rem; /* Forces consistent height so details below are perfectly aligned */
+}
+
+.hotelDetails {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-secondary);
+  font-size: clamp(0.5rem, 1.5vw, 0.85rem);
+  margin-bottom: 0.8rem;
+  font-style: italic;
+  max-width: 250px;
+  line-height: 1.5;
+  padding: 0 0.25rem;
+}
+
+.hotelPrice {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-primary);
+  font-size: clamp(0.6rem, 2vw, 1rem);
+  font-weight: 600;
+}
+
+.whereToStayFooter {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-secondary);
+  font-size: clamp(0.8rem, 2vw, 0.95rem);
+  margin-bottom: 4rem;
+  line-height: 1.6;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.8s forwards;
+}
+
+.houseImageContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 1s forwards;
+}
+
+.houseImage {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  object-fit: contain;
+}
+
 /* Desktop Enhancements */
 @media (min-width: 768px) {
   .heroSection {
@@ -349,6 +449,10 @@
   .galleryTextCenter {
     flex: 1;
     align-items: center;
+  }
+
+  .hotelsGrid {
+    gap: 2rem;
   }
 }
 
