@@ -120,7 +120,7 @@ export default function Home() {
       <section className={styles.heroSection}>
         <div className={styles.centralImageWrapper}>
           <Image
-            src="/assets/Gate.png"
+            src="/assets/gate.png"
             alt="Wedding Archway"
             width={950}
             height={600}
@@ -192,26 +192,14 @@ export default function Home() {
             </div>
           </div>
 
-          <div className={`${styles.galleryRow} ${styles.rowReverse}`}>
-            <div className={`${styles.galleryImageContainer} ${styles.afterWeddingImageContainer}`}>
-              <Image
-                src="/assets/table.png"
-                alt="After Wedding Table"
-                width={800}
-                height={800}
-                className={`${styles.galleryImage} ${styles.afterWeddingImage}`}
-              />
-            </div>
-            <div className={styles.galleryTextCenter}>
-              <h3 className={`${styles.weddingDayTitle} ${styles.afterWeddingTitle}`}>The After engagment</h3>
-              <p className={styles.weddingDayDetails}>
-                24 July 2026<br /><br />
-                THE Zafa<br />CAIRO, EGYPT<br /><br />
-                AT 7:00 PM<br /><br />
-                DRESS CODE: BLACK & WHITE
-              </p>
-              <button className={styles.secondaryButton}>Hometown</button>
-            </div>
+          <div style={{ display: 'flex', justifyContent: 'center', margin: '4rem 0' }}>
+            <Image
+              src="/assets/tiki.png"
+              alt="Tiki"
+              width={600}
+              height={600}
+              style={{ objectFit: 'contain', maxWidth: '100%', height: 'auto' }}
+            />
           </div>
         </div>
       </section>
