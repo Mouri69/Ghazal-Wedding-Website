@@ -130,9 +130,8 @@ export default function Home() {
         </div>
 
         <div className={styles.heroContent}>
-          <p className={styles.preTitle}>TOGETHER WITH THEIR FAMILIES,</p>
+          <p className={styles.preTitle}>TOGETHER WE CELEBRATE LOVE,</p>
           <h1 className={styles.title}>Mohamed & Habiba</h1>
-          <p className={styles.subtitle}>Joyfully invite you to celebrate their engagment weekend</p>
           <p className={styles.dateLocation}>JULY 24, 2026 &nbsp;&middot;&nbsp; CAIRO, EGYPT</p>
 
           {isMounted && (
