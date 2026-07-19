@@ -131,7 +131,7 @@ export default function Home() {
 
         <div className={styles.heroContent}>
           <p className={styles.preTitle}>TOGETHER WITH THEIR FAMILIES,</p>
-          <h1 className={styles.title}>Ghazal & Ghazal's wife</h1>
+          <h1 className={styles.title}>Mohamed & Habiba</h1>
           <p className={styles.subtitle}>Joyfully invite you to celebrate their engagment weekend</p>
           <p className={styles.dateLocation}>JULY 24, 2026 &nbsp;&middot;&nbsp; CAIRO, EGYPT</p>
 
