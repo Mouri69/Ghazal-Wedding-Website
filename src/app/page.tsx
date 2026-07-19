@@ -120,7 +120,7 @@ export default function Home() {
       <section className={styles.heroSection}>
         <div className={styles.centralImageWrapper}>
           <Image
-            src="/assets/gate.png"
+            src="/assets/Gate.png"
             alt="Wedding Archway"
             width={950}
             height={600}
