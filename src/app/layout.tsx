@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description: "Joyfully invite you to celebrate their engagement weekend",
     images: [
       {
-        url: "/assets/bg-og.jpg",
+        url: "/assets/bg2.png",
         width: 1200,
         height: 630,
         alt: "Mohamed & Habiba's Engagement",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Mohamed & Habiba's Engagement",
     description: "Joyfully invite you to celebrate their engagement weekend",
-    images: ["/assets/bg-og.jpg"],
+    images: ["/assets/bg2.png"],
   },
 };
 
