@@ -186,7 +186,7 @@ export default function Home() {
                 24 July 2026<br /><br />
                 Tiki Pool & Bar, CAIRO, EGYPT<br /><br />
                 AT 8 PM<br /><br />
-                DRESS CODE: FORMAL
+                DRESS CODE: SEMI-FORMAL
               </p>
               <button className={styles.secondaryButton} onClick={() => window.open('https://maps.app.goo.gl/oWxfo7196T7vKZzh9?g_st=ipc', '_blank', 'noopener,noreferrer')}>Get Location</button>
             </div>
